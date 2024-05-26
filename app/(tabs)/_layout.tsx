@@ -17,28 +17,30 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
+        tabBarStyle: { paddingTop: 8, paddingBottom: 8 },
       }}
+      // sceneContainerStyle={{paddingVertical: 16, backgroundColor: "yellow"}}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Expo V3",
+          title: "Home",
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
 
       <Tabs.Screen
-        name="tab1"
+        name="analysis"
         options={{
-          title: "Tab 1",
-          tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
+          title: "Analysis",
+          tabBarIcon: ({ color }) => <TabBarIcon name="bar-chart-o" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="tab2"
+        name="settings"
         options={{
-          title: "Tab 2",
-          tabBarIcon: ({ color }) => <TabBarIcon name="star-o" color={color} />,
+          title: "Settings",
+          tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
         }}
       />
     </Tabs>
