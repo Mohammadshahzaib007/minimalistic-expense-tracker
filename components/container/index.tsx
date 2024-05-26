@@ -10,7 +10,7 @@ interface PropType {
 const Container = (props: ViewProps) => {
   const { children, ...restProps } = props;
   return (
-    <View flex={1} bg="$white" paddingHorizontal={16} {...restProps}>
+    <View flex={1} $light-bg="$white"  paddingHorizontal={16} {...restProps}>
       {children}
     </View>
   );
