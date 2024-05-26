@@ -1,13 +1,5 @@
-import { Heading, Center, Divider, Text } from "@gluestack-ui/themed";
+import AnalysisPage from "@/pages/analysis";
 
-export default function Tab2() {
-  return (
-    <Center flex={1}>
-      <Heading bold size="2xl">
-        Expo V3 - Tab 1
-      </Heading>
-      <Divider marginVertical={30} width="80%" />
-      <Text p="$4">Example below to use gluestack-ui components.</Text>
-    </Center>
-  );
+export default function Analysis() {
+  return <AnalysisPage />;
 }

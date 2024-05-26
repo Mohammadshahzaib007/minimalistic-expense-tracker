@@ -17,7 +17,7 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
-        tabBarStyle: { paddingTop: 8, paddingBottom: 8 },
+        tabBarStyle: { paddingTop: 8, paddingBottom: 8,borderTopRightRadius: 20, borderTopLeftRadius: 20 },
       }}
       // sceneContainerStyle={{paddingVertical: 16, backgroundColor: "yellow"}}
     >
