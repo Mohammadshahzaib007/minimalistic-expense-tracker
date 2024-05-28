@@ -1,10 +1,14 @@
 import Container from "@/components/container";
+import ExpenseCard from "@/components/expense-card";
 import { FontAwesome } from "@expo/vector-icons";
 import {
   Button,
   ButtonIcon,
+  ButtonText,
+  Card,
   Center,
   Heading,
+  Pressable,
   Text,
   View,
 } from "@gluestack-ui/themed";
@@ -16,12 +20,13 @@ const HomePage = () => {
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
-        mb="$2"
+        mb="$4"
       >
-        <Heading size="md" fontWeight={500}>This month</Heading>
-        <Button bg="transparent" size="lg" borderRadius="$full">
+        <Heading size="md">This month</Heading>
+
+        <Pressable>
           <FontAwesome name="search" size={20} />
-        </Button>
+        </Pressable>
       </View>
 
       {/* Spending card */}
@@ -56,6 +61,23 @@ const HomePage = () => {
           </Text>
         </Center>
       </View>
+
+      <View
+        marginTop="$8"
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        mb="$4"
+      >
+        <Heading size="md">Recent transictions</Heading>
+
+        <Pressable>
+          <Text size="sm">See all</Text>
+        </Pressable>
+      </View>
+
+      {/* Expense Card */}
+      <ExpenseCard />
     </Container>
   );
 };
