@@ -77,7 +77,10 @@ const HomePage = () => {
       </View>
 
       {/* Expense Card */}
-      <ExpenseCard />
+      <View gap="$3">
+        <ExpenseCard />
+        <ExpenseCard />
+      </View>
     </Container>
   );
 };

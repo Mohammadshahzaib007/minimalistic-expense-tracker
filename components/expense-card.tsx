@@ -38,7 +38,7 @@ const ExpenseCard = () => {
         <Heading size="xs" fontWeight="$light" mb="$2">
           16 May 24
         </Heading>
-        <FontAwesome name="money" size={20} color="light-green" />
+        <FontAwesome name="money" size={20} color="green" />
       </View>
     </Card>
   );
