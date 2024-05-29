@@ -1,17 +1,8 @@
+import Circle from "@/components/circle";
 import Container from "@/components/container";
 import ExpenseCard from "@/components/expense-card";
-import { FontAwesome } from "@expo/vector-icons";
-import {
-  Button,
-  ButtonIcon,
-  ButtonText,
-  Card,
-  Center,
-  Heading,
-  Pressable,
-  Text,
-  View,
-} from "@gluestack-ui/themed";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
+import { Center, Heading, Pressable, Text, View } from "@gluestack-ui/themed";
 
 const HomePage = () => {
   return (
@@ -35,22 +26,15 @@ const HomePage = () => {
         bg="$red500"
         borderRadius={100}
         paddingVertical="$2"
-        paddingHorizontal="$7"
+        paddingHorizontal="$5"
         flexDirection="row"
         gap="$4"
         alignItems="center"
+        justifyContent="space-between"
       >
-        <View
-          w={42}
-          h={42}
-          borderRadius="$full"
-          bg="rgba(255,255,255, .3)"
-          justifyContent="center"
-          alignItems="center"
-          ml="-$1"
-        >
-          <FontAwesome name="arrow-up" size={16} color="white" />
-        </View>
+        <Circle bg="rgba(255,255,255, .3)" ml="-$1">
+          <FontAwesome6 name="arrow-up-long" size={16} color="white" />
+        </Circle>
 
         <Center>
           <Text size="xs" color="$white" opacity={0.6}>
@@ -81,6 +65,19 @@ const HomePage = () => {
         <ExpenseCard />
         <ExpenseCard />
       </View>
+
+      <Circle
+        w={54}
+        h={54}
+        bg="$black"
+        position="absolute"
+        bottom={100}
+        right="$6"
+      >
+        <FontAwesome6 name="plus" size={18} color="white" />
+      </Circle>
+
+      {/* Note: Monthly budget UI needs to be added */}
     </Container>
   );
 };

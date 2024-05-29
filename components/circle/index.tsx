@@ -3,13 +3,20 @@ import { View } from "@gluestack-ui/themed";
 
 type ViewProps = ComponentProps<typeof View>;
 
-const Container = (props: ViewProps) => {
+const Circle = (props: ViewProps) => {
   const { children, ...restProps } = props;
   return (
-    <View flex={1} $light-bg="$white" paddingHorizontal={16} {...restProps}>
+    <View
+      w={42}
+      h={42}
+      justifyContent="center"
+      alignItems="center"
+      {...restProps}
+      borderRadius="$full"
+    >
       {children}
     </View>
   );
 };
 
-export default Container;
+export default Circle;

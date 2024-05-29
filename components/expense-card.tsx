@@ -1,5 +1,6 @@
-import { FontAwesome } from "@expo/vector-icons";
+import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Card, View, Heading, Text } from "@gluestack-ui/themed";
+import Circle from "./circle";
 
 const ExpenseCard = () => {
   return (
@@ -14,17 +15,9 @@ const ExpenseCard = () => {
       justifyContent="space-between"
     >
       <View flexDirection="row">
-        <View
-          w={42}
-          h={42}
-          borderRadius="$full"
-          bg="$red300"
-          justifyContent="center"
-          alignItems="center"
-          mr="$4"
-        >
-          <FontAwesome name="arrow-up" size={16} color="white" />
-        </View>
+        <Circle bg="$red300" mr="$4">
+          <FontAwesome6 name="arrow-up-long" size={16} color="white" />
+        </Circle>
 
         <View>
           <Heading size="md" fontWeight="$light">
