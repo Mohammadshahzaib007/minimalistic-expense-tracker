@@ -1,6 +1,6 @@
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Card, View, Heading, Text } from "@gluestack-ui/themed";
-import Circle from "./circle";
+import Circle from "../circle";
 
 const ExpenseCard = () => {
   return (
