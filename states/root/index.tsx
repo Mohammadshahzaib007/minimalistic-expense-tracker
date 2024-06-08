@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useReducer,
-  useEffect,
-  useMemo,
-  useContext,
-} from "react";
+import { createContext, useReducer, useMemo, useContext } from "react";
 
 const initialState = {
   user: "Mohammad shahzaib",

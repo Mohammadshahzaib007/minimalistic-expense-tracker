@@ -5,8 +5,11 @@ import AddExpenseBottomDialog from "@/components/add-expense-bottom-dialog";
 import Circle from "@/components/circle";
 import Container from "@/components/container";
 import ExpenseCard from "@/components/expense-card";
+import { useHomeState } from "@/states/home";
 
 const HomePage = () => {
+  const { isAddExpenseOpen, toggleAddExpenseModal } = useHomeState();
+  console.log({ isAddExpenseOpen });
   return (
     <Container>
       <View
@@ -68,13 +71,18 @@ const HomePage = () => {
         <ExpenseCard />
       </View>
 
-      <Pressable position="absolute" bottom={100} right="$6">
+      <Pressable
+        position="absolute"
+        onPress={toggleAddExpenseModal}
+        bottom={100}
+        right="$6"
+      >
         <Circle w={54} h={54} bg="$black">
           <FontAwesome6 name="plus" size={18} color="white" />
         </Circle>
       </Pressable>
 
-      <AddExpenseBottomDialog />
+      <AddExpenseBottomDialog open={isAddExpenseOpen} />
 
       {/* Note: Monthly budget UI needs to be added */}
     </Container>

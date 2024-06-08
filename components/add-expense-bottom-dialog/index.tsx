@@ -28,9 +28,15 @@ const dummyOptions = [
   { label: "Other", value: "other" },
 ];
 
-function AddExpenseBottomDialog() {
+type PropTypes = {
+  open: boolean;
+};
+
+function AddExpenseBottomDialog(props: PropTypes) {
+  const { open } = props;
+
   return (
-    <Actionsheet isOpen={true}>
+    <Actionsheet isOpen={open}>
       <ActionsheetBackdrop />
       <ActionsheetContent px="$4">
         <ActionsheetDragIndicatorWrapper>
