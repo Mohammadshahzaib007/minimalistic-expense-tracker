@@ -11,6 +11,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
+import { RootStateProvider } from "@/states/root";
 // import { useColorScheme } from "@/components/useColorScheme";
 
 export {
@@ -55,12 +56,14 @@ function RootLayoutNav() {
 
   return (
     <GluestackUIProvider config={config}>
-      {/* Note: Light dark mode will take care later */}
+      {/* Note: Light dark mode will be taken care later */}
       {/* <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}> */}
       <ThemeProvider value={DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
+        <RootStateProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          </Stack>
+        </RootStateProvider>
       </ThemeProvider>
     </GluestackUIProvider>
   );

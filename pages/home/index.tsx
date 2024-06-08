@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Heading, Pressable, Text, View, Center } from "@gluestack-ui/themed";
 import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 
@@ -8,9 +7,6 @@ import Container from "@/components/container";
 import ExpenseCard from "@/components/expense-card";
 
 const HomePage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen((prev) => !prev);
-
   return (
     <Container>
       <View
@@ -72,7 +68,7 @@ const HomePage = () => {
         <ExpenseCard />
       </View>
 
-      <Pressable position="absolute" bottom={100} right="$6" onPress={toggle}>
+      <Pressable position="absolute" bottom={100} right="$6">
         <Circle w={54} h={54} bg="$black">
           <FontAwesome6 name="plus" size={18} color="white" />
         </Circle>
