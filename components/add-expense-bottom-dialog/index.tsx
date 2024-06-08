@@ -17,6 +17,16 @@ import {
   ButtonIcon,
   AddIcon,
 } from "@gluestack-ui/themed";
+import Dropdown from "../dropdown";
+
+const dummyOptions = [
+  { label: "Persnol", value: "persnol" },
+  { label: "Shopping", value: "shopping" },
+  { label: "Travelling", value: "travelling" },
+  { label: "Medical", value: "medical" },
+  { label: "Education", value: "education" },
+  { label: "Other", value: "other" },
+];
 
 function AddExpenseBottomDialog() {
   return (
@@ -37,9 +47,7 @@ function AddExpenseBottomDialog() {
               </Input>
             </FormControl>
             <FormControl>
-              <Input variant="underlined">
-                <InputField placeholder="Category" />
-              </Input>
+              <Dropdown options={dummyOptions} />
             </FormControl>
             <FormControl>
               <Input variant="underlined">
