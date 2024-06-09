@@ -34,10 +34,11 @@ type PropTypes = {
   open: boolean;
   onClose?: () => void;
   onAdd?: () => void;
+  onChange: (key: string, value: string | number | Date) => void;
 };
 
 function AddExpenseBottomDialog(props: PropTypes) {
-  const { open, onClose, onAdd } = props;
+  const { open, onClose, onAdd, onChange } = props;
 
   return (
     <Actionsheet isOpen={open}>
@@ -51,19 +52,29 @@ function AddExpenseBottomDialog(props: PropTypes) {
           <Heading mb="$8">Add Expense</Heading>
 
           <VStack gap="$3">
-            <DatePicker />
+            <DatePicker onChange={(date) => onChange("date", date)} />
 
             <FormControl>
               <Input variant="underlined">
-                <InputField keyboardType="numeric" placeholder="Amount" />
+                <InputField
+                  onChange={(e) => onChange("amount", +e.nativeEvent.text)}
+                  keyboardType="numeric"
+                  placeholder="Amount"
+                />
               </Input>
             </FormControl>
             <FormControl>
-              <Dropdown options={dummyOptions} />
+              <Dropdown
+                onChange={(val) => onChange("category", val)}
+                options={dummyOptions}
+              />
             </FormControl>
             <FormControl>
               <Input variant="underlined">
-                <InputField placeholder="Add a note" />
+                <InputField
+                  onChange={(e) => onChange("note", e.nativeEvent.text)}
+                  placeholder="Add a note"
+                />
               </Input>
             </FormControl>
 

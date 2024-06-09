@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   DateTimePickerAndroid,
   DateTimePickerEvent,
@@ -6,7 +6,13 @@ import {
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { Pressable, Text, useStyled } from "@gluestack-ui/themed";
 
-const DatePicker = () => {
+type PropTypes = {
+  onChange: (date: Date) => void;
+};
+
+const DatePicker = (props: PropTypes) => {
+  const { onChange: _onChange } = props;
+
   const theme = useStyled();
   const colors = theme.config.tokens.colors;
 
@@ -14,8 +20,13 @@ const DatePicker = () => {
 
   const onChange = (_: DateTimePickerEvent, selectedDate?: Date) => {
     const currentDate = selectedDate;
+    // _onChange(selectedDate!);
     setDate(currentDate!);
   };
+
+  useEffect(() => {
+    _onChange(date)
+  }, [date])
 
   const openDateModal = () => {
     DateTimePickerAndroid.open({

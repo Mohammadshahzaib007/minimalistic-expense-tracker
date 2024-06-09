@@ -8,7 +8,12 @@ import ExpenseCard from "@/components/expense-card";
 import { useHomeState } from "@/states/home";
 
 const HomePage = () => {
-  const { isAddExpenseOpen, toggleAddExpenseModal } = useHomeState();
+  const {
+    isAddExpenseOpen,
+    toggleAddExpenseModal,
+    addExpenseHandler,
+    inputChangeHandler,
+  } = useHomeState();
   return (
     <Container>
       <View
@@ -84,7 +89,8 @@ const HomePage = () => {
       <AddExpenseBottomDialog
         open={isAddExpenseOpen}
         onClose={toggleAddExpenseModal}
-        onAdd={toggleAddExpenseModal}
+        onAdd={addExpenseHandler}
+        onChange={inputChangeHandler}
       />
 
       {/* Note: Monthly budget UI needs to be added */}

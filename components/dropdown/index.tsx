@@ -18,12 +18,13 @@ type PropTypes = {
     label: string;
     value: string;
   }[];
+  onChange: (arg: string) => void;
 };
 
 export default function Dropdown(props: PropTypes) {
-  const { options = [] } = props;
+  const { options = [], onChange } = props;
   return (
-    <Select>
+    <Select onValueChange={onChange}>
       <SelectTrigger variant="underlined" size="md">
         <SelectInput placeholder="Category" />
         <SelectIcon mr="$3">

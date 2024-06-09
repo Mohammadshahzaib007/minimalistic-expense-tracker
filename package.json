@@ -19,6 +19,7 @@
     "@gluestack-ui/config": "latest",
     "@gluestack-ui/themed": "latest",
     "@hookform/resolvers": "^3.3.4",
+    "@react-native-community/datetimepicker": "8.0.1",
     "@react-navigation/drawer": "^6.6.7",
     "@react-navigation/native": "^6.0.2",
     "expo": "^51.0.8",
@@ -39,8 +40,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-web": "~0.19.6",
-    "zod": "^3.22.4",
-    "@react-native-community/datetimepicker": "8.0.1"
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
