@@ -9,7 +9,6 @@ import { useHomeState } from "@/states/home";
 
 const HomePage = () => {
   const { isAddExpenseOpen, toggleAddExpenseModal } = useHomeState();
-  console.log({ isAddExpenseOpen });
   return (
     <Container>
       <View
@@ -82,7 +81,11 @@ const HomePage = () => {
         </Circle>
       </Pressable>
 
-      <AddExpenseBottomDialog open={isAddExpenseOpen} />
+      <AddExpenseBottomDialog
+        open={isAddExpenseOpen}
+        onClose={toggleAddExpenseModal}
+        onAdd={toggleAddExpenseModal}
+      />
 
       {/* Note: Monthly budget UI needs to be added */}
     </Container>

@@ -1,4 +1,10 @@
-import { createContext, useReducer, useMemo, useContext } from "react";
+import {
+  createContext,
+  useReducer,
+  useMemo,
+  useContext,
+  useCallback,
+} from "react";
 import { HomeActionType, HomeStateType } from "../types";
 
 const initialState = {
@@ -12,7 +18,6 @@ const HomeStateContext = createContext<HomeStateType>(initialState);
 const reducer = (state: HomeStateType, action: HomeActionType) => {
   switch (action.type) {
     case "TOGGLE_ADD_EXPENSE_MODAL":
-      console.log("toggle", !state.isAddExpenseOpen);
       return { ...state, isAddExpenseOpen: !state.isAddExpenseOpen };
     default:
       return state;
@@ -22,10 +27,15 @@ const reducer = (state: HomeStateType, action: HomeActionType) => {
 export const HomeStateProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const toggleAddExpenseModal = () =>
-    dispatch({ type: "TOGGLE_ADD_EXPENSE_MODAL" });
+  const toggleAddExpenseModal = useCallback(
+    () => dispatch({ type: "TOGGLE_ADD_EXPENSE_MODAL" }),
+    []
+  );
 
-  const value = useMemo(() => ({ ...state, toggleAddExpenseModal }), [state]);
+  const value = useMemo(
+    () => ({ ...state, toggleAddExpenseModal }),
+    [state, toggleAddExpenseModal]
+  );
 
   return (
     <HomeStateContext.Provider value={value}>

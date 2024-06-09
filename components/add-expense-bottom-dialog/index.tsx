@@ -30,10 +30,12 @@ const dummyOptions = [
 
 type PropTypes = {
   open: boolean;
+  onClose?: () => void;
+  onAdd?: () => void;
 };
 
 function AddExpenseBottomDialog(props: PropTypes) {
-  const { open } = props;
+  const { open, onClose, onAdd } = props;
 
   return (
     <Actionsheet isOpen={open}>
@@ -62,7 +64,13 @@ function AddExpenseBottomDialog(props: PropTypes) {
             </FormControl>
 
             <HStack justifyContent="flex-end" gap="$3" mt="$3">
-              <Button variant="solid" p="$0" size="sm" bg="$error300">
+              <Button
+                onPress={onClose}
+                variant="solid"
+                p="$0"
+                size="sm"
+                bg="$error300"
+              >
                 <ButtonText>Cancel</ButtonText>
               </Button>
               <Button
@@ -71,6 +79,7 @@ function AddExpenseBottomDialog(props: PropTypes) {
                 action="primary"
                 isDisabled={false}
                 isFocusVisible={false}
+                onPress={onAdd}
               >
                 <ButtonText>Add </ButtonText>
                 <ButtonIcon as={AddIcon} />
