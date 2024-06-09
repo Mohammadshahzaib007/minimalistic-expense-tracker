@@ -17,7 +17,9 @@ import {
   ButtonIcon,
   AddIcon,
 } from "@gluestack-ui/themed";
+
 import Dropdown from "../dropdown";
+import DatePicker from "../date-picker";
 
 const dummyOptions = [
   { label: "Persnol", value: "persnol" },
@@ -49,6 +51,8 @@ function AddExpenseBottomDialog(props: PropTypes) {
           <Heading mb="$8">Add Expense</Heading>
 
           <VStack gap="$3">
+            <DatePicker />
+
             <FormControl>
               <Input variant="underlined">
                 <InputField keyboardType="numeric" placeholder="Amount" />
