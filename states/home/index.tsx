@@ -1,12 +1,6 @@
-import {
-  createContext,
-  useReducer,
-  useMemo,
-  useContext,
-  useCallback,
-} from "react";
-import { HomeActionType, HomeStateType } from "../types";
-import { ExpenseType } from "@/types";
+import { createContext, useReducer, useContext } from "react";
+import { HomeStateType } from "../types";
+import { reducer } from "./reducer";
 
 const initialState: HomeStateType = {
   isAddExpenseOpen: false,
@@ -15,31 +9,6 @@ const initialState: HomeStateType = {
 
 // Create Context
 const HomeStateContext = createContext<HomeStateType>(initialState);
-
-// Reducer
-const reducer = (
-  state: HomeStateType,
-  action: HomeActionType
-): HomeStateType => {
-  switch (action.type) {
-    case "TOGGLE_ADD_EXPENSE_MODAL":
-      return { ...state, isAddExpenseOpen: !state.isAddExpenseOpen };
-    case "ADD_EXPENSE":
-      console.log(action.payload);
-      return { ...state };
-
-    case "USER_INPUT_CHANGE":
-      return {
-        ...state,
-        userInput: {
-          ...state.userInput,
-          [action.payload.key]: action.payload.value,
-        },
-      };
-    default:
-      return state;
-  }
-};
 
 export const HomeStateProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
