@@ -29,11 +29,15 @@ export const HomeStateProvider = ({ children }: any) => {
     dispatch({ type: "USER_INPUT_CHANGE", payload: { key, value } });
   };
 
+  const currMonthExpenses =
+    state.expenses[new Date().getFullYear()]?.[new Date().getMonth() + 1] || [];
+
   const value = {
     ...state,
     toggleAddExpenseModal,
     addExpenseHandler,
     inputChangeHandler,
+    currMonthExpenses,
   };
 
   return (

@@ -2,7 +2,14 @@ import { FontAwesome, FontAwesome6 } from "@expo/vector-icons";
 import { Card, View, Heading, Text } from "@gluestack-ui/themed";
 import Circle from "../circle";
 
-const ExpenseCard = () => {
+type PropTypes = {
+  amount: number;
+  date: string;
+  note?: string;
+};
+
+const ExpenseCard = (props: PropTypes) => {
+  const { amount, date, note } = props;
   return (
     <Card
       size="md"
@@ -21,15 +28,15 @@ const ExpenseCard = () => {
 
         <View>
           <Heading size="md" fontWeight="$light">
-            ₹100
+            ₹{amount}
           </Heading>
-          <Text size="sm">Petrol</Text>
+          <Text size="sm">{note || ""}</Text>
         </View>
       </View>
 
       <View alignItems="flex-end">
         <Heading size="xs" fontWeight="$light" mb="$2">
-          16 May 24
+          {date}
         </Heading>
         <FontAwesome name="money" size={20} color="green" />
       </View>

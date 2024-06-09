@@ -13,6 +13,7 @@ const HomePage = () => {
     toggleAddExpenseModal,
     addExpenseHandler,
     inputChangeHandler,
+    currMonthExpenses,
   } = useHomeState();
   return (
     <Container>
@@ -71,8 +72,14 @@ const HomePage = () => {
 
       {/* Expense Card */}
       <View gap="$3">
-        <ExpenseCard />
-        <ExpenseCard />
+        {currMonthExpenses.slice(0, 4).map((expense) => (
+          <ExpenseCard
+            key={expense.id}
+            amount={expense.amount}
+            note={expense.note}
+            date={expense.date as unknown as string}
+          />
+        ))}
       </View>
 
       <Pressable

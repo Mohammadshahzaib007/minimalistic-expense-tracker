@@ -31,9 +31,10 @@ function addExpense(state: HomeStateType, expense: ExpenseType) {
   const date = expense.date as unknown as string;
   const [_, month, year] = date.split("/");
 
+  const _month = month.replace("0", "");
   const allPrevExpenses = state.expenses;
   const prevYearExpenses = allPrevExpenses[year];
-  const prevMonthExpenses = prevYearExpenses?.[month] || [];
+  const prevMonthExpenses = prevYearExpenses?.[_month] || [];
   const id = (prevMonthExpenses.at(-1)?.id as number) + 1 || 0;
 
   return {
@@ -42,7 +43,7 @@ function addExpense(state: HomeStateType, expense: ExpenseType) {
       ...allPrevExpenses,
       [year]: {
         ...prevYearExpenses,
-        [month]: [...prevMonthExpenses, { ...expense, id }],
+        [_month]: [...prevMonthExpenses, { ...expense, id }],
       },
     },
   };

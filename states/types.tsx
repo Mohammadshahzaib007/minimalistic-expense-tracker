@@ -9,6 +9,7 @@ export interface HomeStateType {
   isAddExpenseOpen: boolean;
   expenses: AllExpensesType;
   userInput: ExpenseType;
+  currMonthExpenses: ExpenseType[];
 
   // handlers
   toggleAddExpenseModal: () => void;
