@@ -28,7 +28,7 @@ const ExpenseCard = (props: PropTypes) => {
 
         <View>
           <Heading size="md" fontWeight="$light">
-            ₹{amount}
+            ₹{+amount.toFixed(2)}
           </Heading>
           <Text size="sm">{note || ""}</Text>
         </View>

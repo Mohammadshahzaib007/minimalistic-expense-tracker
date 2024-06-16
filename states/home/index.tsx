@@ -31,6 +31,9 @@ export const HomeStateProvider = ({ children }: any) => {
 
   const currMonthExpenses =
     state.expenses[new Date().getFullYear()]?.[new Date().getMonth() + 1] || [];
+  const thisMonthTotoalExpenses = +currMonthExpenses
+    .reduce((acc, { amount }) => acc + amount, 0)
+    .toFixed(2);
 
   const value = {
     ...state,
@@ -38,6 +41,7 @@ export const HomeStateProvider = ({ children }: any) => {
     addExpenseHandler,
     inputChangeHandler,
     currMonthExpenses,
+    thisMonthTotoalExpenses,
   };
 
   return (

@@ -14,6 +14,7 @@ const HomePage = () => {
     addExpenseHandler,
     inputChangeHandler,
     currMonthExpenses,
+    thisMonthTotoalExpenses,
   } = useHomeState();
   return (
     <Container>
@@ -51,7 +52,7 @@ const HomePage = () => {
             Spending
           </Text>
           <Text size="lg" bold color="$white">
-            ₹2,228
+            ₹{thisMonthTotoalExpenses}
           </Text>
         </Center>
       </View>

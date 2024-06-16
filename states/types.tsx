@@ -10,6 +10,7 @@ export interface HomeStateType {
   expenses: AllExpensesType;
   userInput: ExpenseType;
   currMonthExpenses: ExpenseType[];
+  thisMonthTotoalExpenses: number;
 
   // handlers
   toggleAddExpenseModal: () => void;
